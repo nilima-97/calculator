@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char operator;
+        double number1, number2, result;
+
+        while (true) {
+            System.out.println("Enter first number:");
+            number1 = scanner.nextDouble();
+
+            System.out.println("Enter an operator (+, -, *, /) or 'q' to quit:");
+            operator = scanner.next().charAt(0);
+
+            if (operator == 'q') {
+                System.out.println("Exiting calculator. Goodbye!");
+                break;
+            }
+
+            System.out.println("Enter second number:");
+            number2 = scanner.nextDouble();
+
+            switch (operator) {
+                case '+':
+                    result = number1 + number2;
+                    System.out.println("Result: " + number1 + " + " + number2 + " = " + result);
+                    break;
+                case '-':
+                    result = number1 - number2;
+                    System.out.println("Result: " + number1 + " - " + number2 + " = " + result);
+                    break;
+                case '*':
+                    result = number1 * number2;
+                    System.out.println("Result: " + number1 + " * " + number2 + " = " + result);
+                    break;
+                case '/':
+                    if (number2 != 0) {
+                        result = number1 / number2;
+                        System.out.println("Result: " + number1 + " / " + number2 + " = " + result);
+                    } else {
+                        System.out.println("Error! Division by zero.");
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid operator! Please try again.");
+            }
+            System.out.println(); // Print a newline for better readability
+        }
+        scanner.close();
+    }
+}
